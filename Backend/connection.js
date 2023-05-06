@@ -1,21 +1,17 @@
 const mysql = require('mysql');
 require('dotenv').config({ path: '/.env' })
 const fs = require('fs');
-const conn = mysql.createConnection({
-    host: "nodejs.mysql.database.azure.com",
-    user: "Aditya664",
-    password: "Rutuja@123",
-    database: "nodejs",
-    port: 3306,
-    // ssl: { ca: fs.readFileSync("./DigiCertGlobalRootCA.crt.pem") }
-});
+var conn = mysql.createConnection({ host: "sql.freedb.tech", user: "freedb_Aditya", password: "xYd44CHsbF?%R#$", database: "freedb_nodecafe", port: 3306 });
 
 conn.connect((err) => {
-    if (err) {
-        console.error('error:', err.message);
-        return;
+    if (!err) {
+        console.log('success');
+    } else {
+        console.log('error', err)
     }
-    console.log('Connected to the MySQL server.');
 });
+
+// const mysql = ('mysql2/promise');
+
 
 module.exports = conn;
